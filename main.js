@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require("path");
 const dotenv = require('dotenv');
 const { routes } = require('./src/routes/index.js');
 const db = require('./src/db/index.js');
@@ -15,7 +16,13 @@ app.use(express.urlencoded({extended: false}))
 
 app.use('/swagger-docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
 
+app.get('/', (req, res) => {
+    res.contentType = "text/html; charset=utf-8";
+    res.status(200).sendFile(path.join(__dirname, "index.html"));
+})
+
 app.use(routes);
+
 
 app.use((err, req, res, next) => {
     console.log(err);
