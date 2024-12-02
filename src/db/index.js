@@ -15,7 +15,7 @@ const database = process.env.DB;
 const username = process.env.DB_USER;
 const host = process.env.DB_HOST;
 const port = process.env.DB_PORT;
-const password = null;
+const password = process.env.DB_PASSWORD || null;
 const options = {
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
