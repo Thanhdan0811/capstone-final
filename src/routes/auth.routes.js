@@ -56,6 +56,45 @@ const routes = express.Router();
  */
 routes.post('/register', handleErrorRoutes(authController.register))
 
+
+/**
+ * @swagger
+ * /auth/login:
+ *   post:
+ *     summary: User Login
+ *     description: Login for an existing user.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 example: test_owner@yopmail.com
+ *               password:
+ *                 type: string
+ *                 example: 123456
+ *     responses:
+ *       200:
+ *         description: User logged in successfully.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Login successful
+ *                 tok:
+ *                   type: string
+ *                   description: JWT token for authenticated user
+ *       400:
+ *         description: Invalid credentials.
+ *       401:
+ *         description: Unauthorized, incorrect email or password.
+ */
 routes.post('/login', handleErrorRoutes(authController.login))
 
 
