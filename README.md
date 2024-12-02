@@ -1,0 +1,3 @@
+- need install : mysql
+- run : npm i --force
+- run : npm start.
