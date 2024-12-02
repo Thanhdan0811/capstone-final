@@ -5,7 +5,12 @@ const { middlewareCheckToken } = require('../config/jwt.js');
 const { uploadCloud } = require('../config/uploadCloudinary.js');
 
 const routes = express.Router();
-
+/**
+ * @swagger
+ * tags:
+ *   - name: Listing
+ *     description: Authentication related APIs
+ */
 
 /**
  * @swagger
