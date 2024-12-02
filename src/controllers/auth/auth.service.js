@@ -29,7 +29,6 @@ exports.registerService = async ({name, email, password, phone, birth_date, gend
     })
 }
 
-
 exports.loginService = async ({email, password}) => {
     const user = await findUserFromEmail(email);
     if (!user) throw {message: "email/password not valid", status: 403};

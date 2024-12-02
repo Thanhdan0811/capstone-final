@@ -4,17 +4,13 @@ const { authController } = require('../controllers/index.js');
 
 const routes = express.Router();
 
-/**
- * @swagger
- * tags:
- *   - name: Auth
- *     description: Authentication related APIs
- */
 
 /**
  * @swagger
  * /auth/register:
  *   post:
+ *     tags:
+ *       - Auth
  *     summary: User Register
  *     description: Register a new user.
  *     requestBody:
@@ -51,6 +47,7 @@ const routes = express.Router();
  *               properties:
  *                 message:
  *                   type: string
+ *                   example: "User registered successfully"
  *                 user:
  *                   type: object
  *                   properties:
@@ -68,6 +65,8 @@ routes.post('/register', handleErrorRoutes(authController.register))
  * @swagger
  * /auth/login:
  *   post:
+ *     tags:
+ *       - Auth
  *     summary: User Login
  *     description: Login for an existing user.
  *     requestBody:
